@@ -9,14 +9,19 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+/*研究UITextField
+https://medium.com/彼得潘的-swift-ios-app-開發教室/study-uitextfield-3f8f0cc3749d
+*/
+    
+    var randomNumber = Int.random(in: 0...20)
+    
     @IBOutlet weak var wordCountLabel: UILabel!
     @IBOutlet weak var promptLabel: UILabel!
     @IBAction func answerTextField(_ sender: UITextField) {
         if let number = Int(sender.text!) {
-            if number > 10 {
+            if number > randomNumber {
                 promptLabel.text = "過大"
-            } else if number < 10{
+            } else if number < randomNumber{
                 promptLabel.text = "過小"
             } else{
                 promptLabel.text = "正確" 
@@ -38,6 +43,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        answerLabel.text = "\(randomNumber)"
         let font = answerLabel.font!
         answerLabel.font = font.withSize(1)
         
